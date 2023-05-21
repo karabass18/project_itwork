@@ -1,14 +1,18 @@
 package uitests;
 
-import com.codeborne.selenide.Condition;
 import org.junit.jupiter.api.Test;
+import pages.HeadMenuPage;
 
-import static com.codeborne.selenide.Selenide.$;
+public class HeadMenuTests extends TestsBase {
 
-public class HeadMenuTests extends TestsBase{
+    HeadMenuPage headMenuPage = new HeadMenuPage();
+
     @Test
-    public void checkLogo(){
-        $(".custom-logo").shouldBe(Condition.visible);
+    public void checkLogo() {
+        headMenuPage
+                .checkLogoVisible()
+                .checkLogoLink()
+                .checkLogoSrc();
 
     }
 }
